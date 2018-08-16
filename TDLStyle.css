@@ -1,0 +1,57 @@
+html {
+    background-color : #717A8B;
+    height : 100%;
+    width : 100%;
+}
+header {
+    background-color : blanchedalmond;
+    height : 100%;
+    width : 60%;
+    border : solid;
+    border-color : black;
+    border-width : 3px;
+    padding-bottom : 20px;
+}
+h1 {
+    font-style : italic;
+    font-weight : bold;
+    font-size : 220%;
+    margin-left : 40px;
+    font-family : Georgia, 'Times New Roman', Times, serif;
+}
+button {
+    font-size : 150%;
+}
+li {
+    background-color : blanchedalmond;
+    border : solid;
+    border-color : black;
+    border-width : 2px;
+    font-size : 25px;
+    width : 58.9%;
+    padding : 3px;
+    font-size : 160%;
+    font-family : Georgia, 'Times New Roman', Times, serif;
+}
+#myInput {
+    font-family : Georgia, 'Times New Roman', Times, serif;
+    font-size : 150%;
+    margin-left : 40px;
+    padding-left : 3px;
+
+}
+.close {
+    font-weight : bold;
+    cursor : pointer;
+}
+button {
+    cursor : pointer;
+    font-family : Georgia, 'Times New Roman', Times, serif;
+}
+#sorter {
+    font-family : Georgia, 'Times New Roman', Times, serif;
+    font-size : 150%;
+    margin-left : 40px;
+    padding-left : 3px;
+    margin-top : 4px;
+}

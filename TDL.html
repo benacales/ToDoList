@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+    <meta name = "To Do List" content = "A Program that creates a To-DO List";>
+    <title> To Do List </title>
+    <link rel = "stylesheet" href = "TDLStyle.css">
+    <script src = "sortDescending.js"></script>
+    <script src = "sortNumbers.js"></script>
+    <script src = "sortObjectsBy.js"></script>
+    <script src = "sortObjectsById.js"></script>
+</head>
+<body>
+    <header class = "column">
+        <div id="myDIV" class="header">
+            <h1>My To Do List</h1>
+            <input type="text" id ="myInput" placeholder="What To Do...">
+            <span> <button type="button" onclick="clicked()">Add</button> </span>
+            <div class = "row">
+                <select id = "sorter">
+                    <option value = "0" selected> Choose </option>
+                    <option value = "1" id = "sort1"> Ascending </option>
+                    <option value = "2" id = "sort2"> Descending </option>
+                    <option value = "3" id = "sort3"> By ID </option>
+                    <option value = "4" id = "sort4"> Priority </option>
+                    <option value = "5" id = "sort5"> Description </option>
+                </select>
+                <span> <button type="button" onclick="sortingHat()">sort</button> </span>
+            </div>
+        </div>
+        </div>
+    </header>
+</body>
+    <ul id = "toDoList"></ul>
+    <script>
+        var toDos = ["Eat Lunch", "Drink Coffee", "Be Merry"]
+        var ul = document.getElementById("toDoList")
+        for (var i = 0 ; i < toDos.length ; i ++) {
+            var listItem = document.createElement("li");
+            var text = document.createTextNode (toDos[i]);
+            listItem.appendChild (text);
+            console.log ("did i make it into the for loop")
+            ul.appendChild(listItem);
+        }
+        // Create a "close" button and append it to each list item
+        var listItem = document.getElementsByTagName("li");
+        for (var i = 0; i < listItem.length; i++) {
+            var span = document.createElement("span");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            listItem[i].appendChild(span);
+        }
+        // Click on a close button to hide the current list item
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+                var div = this.parentElement;
+                div.style.display = "none";
+            }
+        }
+        function clicked() {
+            var item = document.getElementById("myInput").value;
+            toDos.push(item);  
+            listItem = document.createElement("li");
+            var text = document.createTextNode (item);
+            listItem.appendChild (text);
+            console.log ("did i make it into the function")
+            var span = document.createElement("span");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            span.onclick = function() {
+                var div = this.parentElement;
+                div.style.display = "none";
+            }
+            listItem.appendChild(span);
+            ul.appendChild (listItem);
+            ul.appendChild ()
+            document.getElementById("myInput").value = "";
+        }
+        function sortingHat(){
+            var sortingMethod = sorter.options[sorter.selectedIndex].value; 
+            if (sortingMethod === "1"){
+                toDos = sort(toDos);
+            }
+            else if (sortingMethod === "2"){
+                toDos = sortDescending(toDos);
+            }
+            else if (sortingMethod === "3"){
+                sortById(toDos);
+            }
+            else if (sortingMethod === "4"){
+                sortBy(toDos);
+            }
+            else if (sortingMethod === "5"){
+                sortBy(toDos);
+            }
+            console.log("AFTER SORT:", toDos)
+            ul.innerHTML = '';
+            for (var i = 0 ; i < toDos.length ; i++) {
+                var toDoItem = document.createElement("li");
+                var text = document.createTextNode (toDos[i]);
+                toDoItem.appendChild (text);
+
+                console.log ("did i make it into the function")
+                var span = document.createElement("span");
+                var txt = document.createTextNode("\u00D7");
+                span.className = "close";
+                span.appendChild(txt);
+                span.onclick = function() {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                }
+                toDoItem.appendChild(span);
+                ul.appendChild (toDoItem);
+                document.getElementById("myInput").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
